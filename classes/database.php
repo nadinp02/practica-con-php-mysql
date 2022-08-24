@@ -6,19 +6,19 @@ class DB{
     private $db;
     private $user;
     private $password;
-    private $charset;
+    private $database;
 
     public function __construct(){
-        $this->host = constant('localhost');
-        $this->db = constant('practica');
-        $this->user = constant('root');
-        $this->password = constant('estudiorocha123');
-        $this->charset = constant('utf8mb4');
+        $this->host ='localhost';
+        $this->db ='practica';
+        $this->user = 'root';
+        $this->password = 'estudiorocha123';
+        $this->database = 'utf8mb4';
     }
 
     function connect(){
         try{
-            $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->charset;
+            $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->database;
             $options = [
                 \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
                 \PDO::ATTR_EMULATE_PREPARES   => false,
@@ -26,7 +26,6 @@ class DB{
             
             $pdo = new \PDO($connection, $this->user, $this->password, $options);
 
-            var_dump($pdo);
             return $pdo;
         }catch(\PDOException $e){
             print_r('Error connection: ' . $e->getMessage());

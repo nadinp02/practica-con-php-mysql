@@ -1,57 +1,71 @@
 <?php
-namespace Clases;
-include_once 'database.php';
- 
 
-class Content extends DB{
-        public function __construct(){
-            parent::__construct();
+namespace Clases;
+
+include_once 'database.php';
+
+
+class Contents extends DB
+{
+    function __construct()
+    {
+        parent::__construct();
+    }
+
+
+    public function list()
+    {
+        $items = [];
+
+        try {
+            $query = $this->connect()->query("SELECT*FROM contenido");
+
+            while ($row = $query->fetch()) {
+                array_push($items, $row);
+            }
+
+            return $items;
+        } catch (\PDOException $e) {
+            return [];
         }
+    }
+
+    public function create($item)
+    {
+
+        $query = $this->connect()->prepare("INSERT INTO contenido ( `title`, `content`, `keywords`, `description`, `category`) VALUES (:title ,:content, :keywords, :description, :category)");
+        try {
+            $query->execute($item);
+            return true;
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
 }
 
 
-    //     public function get(){
-    //         $items =[];
+
     
-    //         try{
-    //             $query = $this->db->connect()->query("SELECT*FROM contenido");
+        // public function getById($id){
+        //     $item = new Contents();
     
-    //             while($row = $query->fetch()){
-    //                 $item = new Contenido();
-    //                 $item->nombre = $row['nombre'];
-    //                 $item->content = $row['content'];
+        //     $query = $this->db->connect()->prepare("SELECT * FROM contenido WHERE content = :content");
+        //     try{
+        //         $query->execute(['content' => $id]);
     
-    //                 array_push($items, $item);
-    //             }
-    
-    //             return $items;
-    
-    //         }catch(PDOException $e){
-    //             return [];
-    //         }
-    
-    //     }
-    
-    //     public function getById($id){
-    //         $item = new Contenido();
-    
-    //         $query = $this->db->connect()->prepare("SELECT * FROM contenido WHERE content = :content");
-    //         try{
-    //             $query->execute(['content' => $id]);
-    
-    //             while($row =$query->fetch()){
+        //         while($row =$query->fetch()){
                   
-    //                 $item->content = $row['content'];
-    //                 $item->nombre = $row['nombre'];
+        //             $item->content = $row['content'];
+        //             $item->nombre = $row['title'];
 
-    //             }
-    //             return $item;
+        //         }
+        //         return $item;
 
-    //         }catch(PDOException $e){
-    //             return null;
+        //     }catch(PDOException $e){
+        //         return null;
     
-    //         }
-    //     }
+        //     }
+        // }
     
     //     public function update($item){
     //         $query = $this->db->connect()->prepare("UPDATE contenido SET content = :content WHERE nombre = :nombre");
@@ -105,5 +119,3 @@ class Content extends DB{
     // public function showResults(){
     //     return $this->connect()->query('SELECT * FROM contenido');
     // }
-    
-
