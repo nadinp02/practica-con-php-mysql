@@ -1,6 +1,6 @@
 <?
  include_once 'config/contents.php';
- $contenidos = new Clases\Content();
+ $contenidos = new Clases\Contents();
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
     <div class="container-fluid-navbar m-0">
 
         <div class="navbar align-items-center " style="height: 120px; ">
-            <img class="mx-auto d-block" src="assets/images/img01.png" style="width: 230px">
+            <img class="mx-auto d-block" src="admin/assets/images/img01.png" style="width: 230px">
         </div>
 
         <div>
@@ -59,15 +59,15 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/images/img02.png" class="imagen-carousel">
+                <img src="admin/assets/images/img02.png" class="imagen-carousel">
             </div>
 
             <div class="carousel-item">
-                <img src="assets/images/img06.png" class="imagen-carousel">
+                <img src="admin/assets/images/img06.png" class="imagen-carousel">
             </div>
 
             <div class="carousel-item">
-                <img src="assets/images/img05.png" class="imagen-carousel">
+                <img src="admin/assets/images/img05.png" class="imagen-carousel">
             </div>
         </div>
 
@@ -86,7 +86,7 @@
         <div class="card mx-auto mt-4 mb-5" style="max-width: 1150px;">
             <div class="row g-0">
                 <div class="col">
-                    <img src="assets/images/img06.png"
+                    <img src="admin/assets/images/img06.png"
                          class="img-fluid rounded-start" style="width: 450px; height:300px">
                 </div>
                 <div class="col">
@@ -108,7 +108,7 @@
                     <div class="col ps-5">
                         <div class="card mx-auto text-center" style="width: 300px; height: 370px">
                             <img class="img-card-top"
-                                 src="assets/images/img06.png">
+                                 src="admin/assets/images/img06.png">
                             <div class="card-body">
                                 <h2 class="card-title">Servicio 1</h2>
                                 <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the</p>
@@ -118,7 +118,7 @@
 
                     <div class="col pe-5 ps-5">
                         <div class="card mx-auto text-center " style="width:300px; height:370px">
-                            <img class="img-card-top" src="assets/images/img05.png">
+                            <img class="img-card-top" src="admin/assets/images/img05.png">
                             <div class="card-body">
                                 <h2 class="card-title">Servicio 2</h2>
                                 <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the</p>
@@ -127,7 +127,7 @@
                     </div>
                     <div class="col pe-5">
                         <div class="card mx-auto text-center" style="width: 300px; height:370px">
-                            <img class="img-card-top" src="assets/images/img04.png">
+                            <img class="img-card-top" src="admin/assets/images/img04.png">
                             <div class="card-body">
                                 <h2 class="card-title">Servicio 3</h2>
                                 <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
@@ -175,7 +175,7 @@
                 </div>
             </div>
         </div>
-        <img class=" mx-auto d-block pt-2 pb-5" src="assets/images/img01.png"
+        <img class=" mx-auto d-block pt-2 pb-5" src="admin/assets/images/img01.png"
              style="width:230px">
     </footer>
 

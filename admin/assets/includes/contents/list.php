@@ -15,7 +15,7 @@ $contentsList = $contents->list();
             ?>
 
             <tr>
-                <td>Titulo n° <?= $contenido['title'] ?></td>
+                <td> <?= $contenido['title']?></td>
                 <td>
                     <a href="index.php?opcion=contents&action=update&id=<?= $contenido['id'] ?>">
                         ACTUALIZAR

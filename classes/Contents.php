@@ -41,47 +41,37 @@ class Contents extends DB
             return false;
         }
     }
+
+
+    public function getById($id)
+    {
+        $query = $this->connect()->prepare("SELECT * FROM contenido WHERE id = :id");
+        try {
+            $query->execute(['id' => $id]);
+            $row = $query->fetch();
+            return $row;
+        } catch (\PDOException $e) {
+            return null;
+        }
+    }
+
+    
+    public function update($item, $id){
+        $query = $this->connect()->prepare("UPDATE contenido SET title = :title, content = :content, keywords = :keywords, description = :description, category = :category  WHERE id = '". $id ."'");
+        
+        try{
+            $query->execute($item);
+
+            return true;
+
+        } catch (\PDOException $e) {
+            return false;
+        }
+
+    }
+
 }
 
-
-
-    
-        // public function getById($id){
-        //     $item = new Contents();
-    
-        //     $query = $this->db->connect()->prepare("SELECT * FROM contenido WHERE content = :content");
-        //     try{
-        //         $query->execute(['content' => $id]);
-    
-        //         while($row =$query->fetch()){
-                  
-        //             $item->content = $row['content'];
-        //             $item->nombre = $row['title'];
-
-        //         }
-        //         return $item;
-
-        //     }catch(PDOException $e){
-        //         return null;
-    
-        //     }
-        // }
-    
-    //     public function update($item){
-    //         $query = $this->db->connect()->prepare("UPDATE contenido SET content = :content WHERE nombre = :nombre");
-    //         try{
-    //             $query->execute([
-    //                 'content'=> $item['content'],
-    //                 'nombre'=> $item['nombre'],
-    //             ]);
-    //             return true;
-    
-    //         }catch(PDOPException $e){
-    //             return false;
-    
-    //         }
-    
-    //     }
     
     //     public function delete($id){
     //         $query = $this->db->connect()->prepare("DELETE FROM contenido  WHERE content = :id");
@@ -97,25 +87,4 @@ class Contents extends DB
     //         }
     
     //     }
-    // }
-
-
-    // public function update($contenido){
-    //     $query = $this->db->connect()->prepare("UPDATE contenido SET nombre = :nombre, content = :content WHERE nombre = :nombre");
-    //     try{
-    //         $query->execute([
-    //             'nombre'=> $contenido['nombre'],
-    //             'content'=> $contenido['content'],
-    //         ]);
-    //         return true;
-
-    //     }catch(PDOPException $e){
-    //         return false;
-
-    //     }
-
-    // }
-
-    // public function showResults(){
-    //     return $this->connect()->query('SELECT * FROM contenido');
     // }
