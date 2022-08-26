@@ -2,17 +2,10 @@
 
 <body>
 
-
-<div class="container-fluid-navbar m-0">
-
-<div class="navbar align-items-center " style="height: 120px; ">
-    <img class="mx-auto d-block" src="assets/images/img01.png" style="width: 230px">
-</div>
-
 <div>
     <ul class="nav justify-content-center" style="height: 45px">
     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="http://localhost/practica-con-php-mysql/admin/index.php">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

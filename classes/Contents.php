@@ -5,6 +5,7 @@ namespace Clases;
 include_once 'database.php';
 
 
+
 class Contents extends DB
 {
     function __construct()
@@ -70,21 +71,20 @@ class Contents extends DB
 
     }
 
+    
+     public function delete($id){
+     $query = $this->connect()->prepare("DELETE FROM contenido  WHERE id ='". $id ."'");
+        try{
+            $query->execute();
+            return true;
+    
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+    
 }
+    
 
-    
-    //     public function delete($id){
-    //         $query = $this->db->connect()->prepare("DELETE FROM contenido  WHERE content = :id");
-    //         try{
-    //             $query->execute([
-    //                 'id' => $id,
-    //             ]);
-    //             return true;
-    
-    //         }catch(PDOPException $e){
-    //             return false;
-    
-    //         }
-    
-    //     }
-    // }
+
+

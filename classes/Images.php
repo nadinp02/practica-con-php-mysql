@@ -1,5 +1,7 @@
 <?php
-class Images extends Contents
+namespace Clases;
+
+class Images extends DB
 {
     private $dbh;
     function __construct()
@@ -8,8 +10,8 @@ class Images extends Contents
     }
 
     function list() {
-        $this->dbh->query("SELECT * FROM contents");
-        return 
+        $this->dbh->query("SELECT * FROM images");
+        return;
     } 
 
 }

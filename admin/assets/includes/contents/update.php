@@ -8,15 +8,16 @@ $id = $_GET["id"];
 // var_dump($content);
 // echo "</pre>";
 
-if(isset($_POST)){
+if(!empty($_POST)){
 
     $contents->update($_POST, $id);
+    header("Location:http://localhost/practica-con-php-mysql/admin/index.php");
 }
 $content = $contents->getById($id);
 
 
 ?>
-<h2 class="mt-4">Actualizar el contenido n° <?= $id ?></h2>
+<h2 class="mt-4 mb-3">Actualizar el contenido n° <?= $id ?></h2>
 <form action ="index.php?opcion=contents&action=update&id=<?= $id ?>" method="POST">
     <input type="text" name="title" value = "<?= $content['title'] ?>">
     <input type="text" name="content" value = "<?= $content['content'] ?>">

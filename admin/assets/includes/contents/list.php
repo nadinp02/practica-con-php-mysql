@@ -1,9 +1,30 @@
 <?php
 include( dirname(__DIR__,4) . "/classes/contents.php");
 $contents = new Clases\Contents;
+
+
+if(isset($_GET["delete"])){
+
+    $contents->delete($_GET["delete"]);
+}
+
+
 $contentsList = $contents->list();
 ?>
-<h2 class="mt-4">Listar los contenidos del Sistema</h2>
+
+<!-- <script type="text/javascript">
+function  ConfirmDelete()
+{
+    var respuesta = confirm("Estas seguro que deseas Eliminar el contenido?")
+    if(respuesta == true){
+        return true;
+    }else{
+        return false;
+    }
+}
+</script> -->
+
+<h2 class="mt-4">Lista de contenidos</h2>
 <table class="table table-response table-hover">
     <thead>
         <th>Titulo</th>
