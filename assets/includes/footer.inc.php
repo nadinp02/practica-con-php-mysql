@@ -4,9 +4,9 @@
 </body>
 
 </html>
-<footer class="footer = mt-5 align-items-center">
+<footer class="footer mt-5 align-items-center">
         <div class="container">
-            <div class=" row row-cols-3 pt-5 pb-4  ">
+            <div class="row row-cols-3 pt-5 pb-4  ">
                 <div class="col p-5">
                     <div class="container">
                         <h3 class="text-center">Servicio 1</h3>
@@ -21,7 +21,7 @@
                 <div class="col p-5">
                     <div class="container">
                         <h3 class="text-center">Servicio 2</h3>
-                        <p class = "">
+                        <p>
                             Lorem Ipsum is simply dummy text <br />
                             of the printing and typesetting <br />
                             industry. Lorem Ipsum has been the

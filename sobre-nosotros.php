@@ -40,14 +40,54 @@
             </ul>
         </div>
     </div>
-
-    <div>
-    <h2 class="m-2 mt-4">Sobre Nosotros</h2>
-    <img class = "m-2" src="admin/assets/images/img02.png" style="width: 600px">
+<div>
+<div class="container mt-5">
+    <div class="single-row ">
+        <div class="col-12 ">
+        <div class="text-center"><p>Instalados en 1994 en la ciudad de San Francisco, Córdoba -“el interior del interior” 
+            de la República Argentina- desarrollamos un innovador 
+            modelo integral de consultoría con una propuesta de valor definida: 
+            hacer crecer empresas.</p></div>
+            <div><img class = "mx-auto d-block pt-2 pb-3" src="https://www.estudiorochayasoc.com/assets/archivos/recortadas/la-consultora_828c51c636_es.jpg" style="width: 800px"></div>
+            <div class="text-center"><p>
+    Abordando a nuestros clientes y haciéndolos crecer en facturación,
+    realizamos planes de acción y crecimiento desde las áreas
+    de marketing, comunicación y publicidad, desarrollos digitales, recursos humanos y comercialización con un modelo de 
+    trabajo único y alta tasa de éxito.
+    </p></div>
+    <div><img class = "mx-auto d-block pt-2 pb-3" src="https://www.estudiorochayasoc.com/assets/archivos/images/empresa_01.jpg" style="width: 800px"></div>
     </div>
+    <div class="text-center"><p>
+    Trabajamos en el crecimiento económico de sus clientes: más de 500 marcas han confiado en nosotros 
+    en estos 28 años de trabajo, en todo el país como así también en Italia, México, Brasil, y Uruguay.
+    <br>
+Nuestro equipo de más de 20 especialistas en comunicación, programación & desarrollo, recursos humanos, 
+investigación de mercado y estadísticas viven con intensidad el lema de nuestro equipo, el #TeamRocha: “work 
+hard play hard”, un equipo que disfruta de ponerse la camiseta de cada cliente y trabajar con pasión por hacerlo 
+crecer.
+    </p></div>
+    <div><img class = "mx-auto d-block pt-2 pb-3" src="https://www.estudiorochayasoc.com/assets/archivos/images/empresa_02.jpg" style="width: 800px"></div>
+    <div><img class = "mx-auto d-block pt-2 pb-3" src="https://www.estudiorochayasoc.com/assets/archivos/images/empresa_03(1).jpg" style="width: 800px"></div>
+<p class="text-center">
+    <span style="font-size:26px;">
+<strong>Nuestra consultora cuenta con una estructura edilicia
+<br>
+de más de <span style="color:#ff671d;">
+700m2 de PURO DISEÑO.
+</span>
+</strong></span>
+</p>
+<div class="text-center"><p>
+Con un gran parque con árboles frutales, Salón de Usos Múltiples con 
+pool, guitarras, tocadisco, proyectores para films, en donde se realizan 
+desde reuniones sociales hasta after office para nuestros clientes, como así 
+también zona de capacitaciones y producciones de streaming de primer 
+nivel. Directorio para reuniones corporativas y más de 30 puestos de trabajo.
+    </p></div>
+   </div>
+ </div>
+</div>
 
-
-    </section>
     <footer class="footer mt-5 align-items-center">
         <div class="container">
             <div class="row row-cols-3 pt-5 pb-4  ">

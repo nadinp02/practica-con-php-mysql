@@ -40,19 +40,23 @@
             </ul>
         </div>
     </div>
-    <h1 class= "m-2 mt-4">Servicios</h1>
+    <div class="container">
+    <h2 class= "m-2 mt-4 text-center" style="color:#ff671d;">Servicios</h2>
+    </div>
+
+
 
     <article>
             <div class="container pb-5 pt-4 pe-2 ps-0">
 
-                <div class="card-group">
+                <div class="card-group " >
 
                     <div class="col ps-5">
                         <div class="card mx-auto text-center" style="width: 300px; height: 370px">
                             <img class="img-card-top"
                                  src="admin/assets/images/img06.png">
                             <div class="card-body">
-                                <h2 class="card-title">Servicio 1</h2>
+                                <h2 class="card-title">Recluting</h2>
                                 <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the</p>
                             </div>
                         </div>
@@ -62,7 +66,7 @@
                         <div class="card mx-auto text-center " style="width:300px; height:370px">
                             <img class="img-card-top" src="admin/assets/images/img05.png">
                             <div class="card-body">
-                                <h2 class="card-title">Servicio 2</h2>
+                                <h2 class="card-title">Mercadolibre</h2>
                                 <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the</p>
                             </div>
                         </div>
@@ -71,7 +75,7 @@
                         <div class="card mx-auto text-center" style="width: 300px; height:370px">
                             <img class="img-card-top" src="admin/assets/images/img04.png">
                             <div class="card-body">
-                                <h2 class="card-title">Servicio 3</h2>
+                                <h2 class="card-title">Publicidad Digital</h2>
                                 <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
                             </div>
                         </div>
@@ -87,7 +91,7 @@
             <img class="img-card-top"
                  src="admin/assets/images/img06.png">
             <div class="card-body">
-                <h2 class="card-title">Servicio 4</h2>
+                <h2 class="card-title">Marketing Operativo</h2>
                 <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the</p>
             </div>
         </div>
@@ -97,7 +101,7 @@
         <div class="card mx-auto text-center " style="width:300px; height:370px">
             <img class="img-card-top" src="admin/assets/images/img05.png">
             <div class="card-body">
-                <h2 class="card-title">Servicio 5</h2>
+                <h2 class="card-title">Redes Sociales</h2>
                 <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the</p>
             </div>
         </div>
@@ -106,7 +110,7 @@
         <div class="card mx-auto text-center" style="width: 300px; height:370px">
             <img class="img-card-top" src="admin/assets/images/img04.png">
             <div class="card-body">
-                <h2 class="card-title">Servicio 6</h2>
+                <h2 class="card-title">E-commerce</h2>
                 <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
             </div>
         </div>

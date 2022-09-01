@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 26-08-2022 a las 18:00:03
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Host: 127.0.0.1:4306
+-- Generation Time: Sep 01, 2022 at 05:55 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `proyecto`
+-- Database: `proyecto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contenido`
+-- Table structure for table `contenido`
 --
 
 CREATE TABLE `contenido` (
@@ -37,7 +37,7 @@ CREATE TABLE `contenido` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `contenido`
+-- Dumping data for table `contenido`
 --
 
 INSERT INTO `contenido` (`id`, `title`, `content`, `keywords`, `description`, `category`) VALUES
@@ -47,49 +47,25 @@ INSERT INTO `contenido` (`id`, `title`, `content`, `keywords`, `description`, `c
 (29, 'Hola', 'Contenit', 'Prueba', 'Descripcion hola', 'G'),
 (30, 'HOLA', 'pruebad', 'GDHHFDG', 'gdfgdf', '345g');
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `images`
---
-
-CREATE TABLE `images` (
-  `id` int(11) NOT NULL,
-  `url` varchar(50) NOT NULL,
-  `content` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `contenido`
+-- Indexes for table `contenido`
 --
 ALTER TABLE `contenido`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `images`
---
-ALTER TABLE `images`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `contenido`
+-- AUTO_INCREMENT for table `contenido`
 --
 ALTER TABLE `contenido`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-
---
--- AUTO_INCREMENT de la tabla `images`
---
-ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
