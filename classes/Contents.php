@@ -11,15 +11,15 @@ class Contents extends DB
     function __construct()
     {
         parent::__construct();
-    }
 
+    }
 
     public function list()
     {
         $items = [];
 
         try {
-            $query = $this->connect()->query("SELECT*FROM contenido");
+            $query = $this->connect()->query("SELECT contenido.title, contenido.content, contenido.keywords, contenido.description, contenido.category, images.url FROM contenido INNER JOIN images ON contenido.id = images.content");
 
             while ($row = $query->fetch()) {
                 array_push($items, $row);

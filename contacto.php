@@ -41,10 +41,38 @@
         </div>
     </div>
 
-    <div>
-    <h2 class="m-2 mt-4">Contacto</h2>
-    <img class = "m-2" src="admin/assets/images/img02.png" style="width: 600px">
+    <h3 class="m-2 mt-4 text-center">Contactanos</h3>
+ 
+    <div class="container">
+    <form>
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Apellido</label>
+    <input type="text" class="form-control" id="lastname" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Numero de telefono</label>
+    <input type="text" class="form-control" id="num" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Mensaje</label>
+    <input type="menssage" class="form-control" id="message">
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
     </div>
+
 
 
     </section>
