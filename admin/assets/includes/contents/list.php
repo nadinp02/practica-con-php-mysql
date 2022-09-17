@@ -2,15 +2,19 @@
 include( dirname(__DIR__,4) . "/classes/contents.php");
 include( dirname(__DIR__,4) . "/classes/images.php");
 $contents = new Clases\Contents;
+$images = new Clases\Images;
 
 
 if(isset($_GET["delete"])){
 
     $contents->delete($_GET["delete"]);
+
 }
 
 
+$imagesList = $images->list();
 $contentsList = $contents->list();
+
 ?>
 
 <script type="text/javascript">
@@ -41,7 +45,14 @@ function  ConfirmDelete()
             <tr>
                 <td> <?= $contenido['title']?></td>
                 <td> <?= $contenido['content']?></td>
-                <td> <img style= "width:200px" src="<?php echo $contenido['url']?>" > </td>
+                <td>
+                <?php foreach ($imagesList as $images) {
+                ?>
+                
+                <img style= "width:200px" src="<?php echo $images['url']?>" >
+            <?php } ?>
+                
+                </td>
                 <td>
                     <a href="index.php?opcion=contents&action=update&id=<?= $contenido['id']?>"><button type='button' class='btn btn-dark'>Actualizar</button></a>
                     <a href="index.php?opcion=contents&action=list&delete=<?= $contenido['id']?>"><button type='button' class='btn btn-danger' onclick="return ConfirmDelete()">Borrar</button></a>
@@ -51,5 +62,6 @@ function  ConfirmDelete()
 
             </tr>
         <?php } ?>
+
     </tbody>
 </table>

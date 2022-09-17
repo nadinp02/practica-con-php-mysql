@@ -19,7 +19,7 @@ class Contents extends DB
         $items = [];
 
         try {
-            $query = $this->connect()->query("SELECT contenido.title, contenido.content, contenido.keywords, contenido.description, contenido.category, images.url FROM contenido INNER JOIN images ON contenido.id = images.content");
+            $query = $this->connect()->query("SELECT * FROM contenido");
 
             while ($row = $query->fetch()) {
                 array_push($items, $row);
@@ -79,6 +79,17 @@ class Contents extends DB
             return true;
     
         } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
+    function view($id)
+    {
+        $query = $this->connect()->prepare("SELECT * FROM contenido WHERE id ='". $id ."'");
+        try {
+            $query->execute();
+            return  $query->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
             return false;
         }
     }

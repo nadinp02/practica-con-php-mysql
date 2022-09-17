@@ -12,6 +12,73 @@ class Images extends Contents
        
     }
 
+     public function list()
+     {
+         $items = [];
+
+         try {
+             $query = $this->connect()->query("SELECT * FROM images");
+
+             while ($row = $query->fetch()) {
+                 array_push($items, $row);
+             }
+
+             return $items;
+        } catch (\PDOException $e) {
+             return [];
+         }
+     }
+
+    public function create($item)
+    {
+
+        $query = $this->connect()->prepare("INSERT INTO images ( `url`) VALUES (:url)");
+        try {
+            $query->execute($item);
+            return true;
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
+    
+    public function update($id, $url){
+        $query = $this->connect()->prepare("UPDATE contenido SET url = :url WHERE id = '". $id ."'");
+        
+        try{
+            $query->execute();
+
+            return true;
+
+        } catch (\PDOException $e) {
+            return false;
+        }
+
+    }
+
+    
+     public function delete($id){
+     $query = $this->connect()->prepare("DELETE FROM images  WHERE id ='". $id ."'");
+        try{
+            $query->execute();
+            return true;
+    
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
+    function view($id)
+    {
+        $query = $this->connect()->prepare("SELECT * FROM contenido WHERE id ='". $id ."'");
+        try {
+            $query->execute();
+            return  $query->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
 }
 
 
