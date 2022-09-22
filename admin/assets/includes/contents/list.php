@@ -8,6 +8,7 @@ $images = new Clases\Images;
 if(isset($_GET["delete"])){
 
     $contents->delete($_GET["delete"]);
+    $images->delete($_GET["delete"]);
 
 }
 
@@ -35,6 +36,7 @@ function  ConfirmDelete()
         <th>Titulo</th>
         <th>Contenido</th>
         <th>Imagenes</th>
+        <th></th>
         <th>Ajustes</th>
     </thead>
     <tbody>
@@ -47,11 +49,19 @@ function  ConfirmDelete()
                 <td> <?= $contenido['content']?></td>
                 <td>
                 <?php foreach ($imagesList as $images) {
-                ?>
+                    if($images['content'] == $contenido['id']){
+                        ?>
+                        <img style= "width:250px" src="<?php echo $images['url']?>" >
+                        <?php
+                        }?>
+                    
+                <?php } ?>
                 
-                <img style= "width:200px" src="<?php echo $images['url']?>" >
-            <?php } ?>
-                
+                </td>
+                <td>
+                <a href="index.php?opcion=contents&action=update&id=<?= $images['url']?>"><button type='button' class='btn btn-dark'>Actualizar imagen</button></a>
+                    <a href="index.php?opcion=contents&action=list&delete=<?= $images['id']?>"><button type='button' class='btn btn-danger' onclick="return ConfirmDelete()">Borrar Imagen</button></a>
+
                 </td>
                 <td>
                     <a href="index.php?opcion=contents&action=update&id=<?= $contenido['id']?>"><button type='button' class='btn btn-dark'>Actualizar</button></a>

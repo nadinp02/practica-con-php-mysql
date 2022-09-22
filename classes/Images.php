@@ -3,7 +3,6 @@ namespace Clases;
 include_once 'database.php';
 include_once 'Contents.php';
 
-
 class Images extends Contents
 {
     function __construct()
@@ -41,9 +40,20 @@ class Images extends Contents
         }
     }
 
+    public function getById($id)
+    {
+        $query = $this->connect()->prepare("SELECT * FROM images WHERE id = '". $id ."'");
+        try {
+            $query->execute();
+            $row = $query->fetch();
+            return $row;
+        } catch (\PDOException $e) {
+            return null;
+        }
+    }
     
     public function update($id, $url){
-        $query = $this->connect()->prepare("UPDATE contenido SET url = :url WHERE id = '". $id ."'");
+        $query = $this->connect()->prepare("UPDATE images SET url = :url WHERE id = '". $id ."'");
         
         try{
             $query->execute();
