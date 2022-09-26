@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2022 at 05:32 PM
+-- Generation Time: Sep 26, 2022 at 05:04 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -68,7 +68,7 @@ INSERT INTO `images` (`id`, `url`, `content`) VALUES
 (3, 'assets\\images\\img05.png', 26),
 (4, 'assets\\images\\img06.png', 28),
 (6, 'assets\\images\\img04.png', 29),
-(7, 'assets\\images\\img01.png', 30);
+(9, 'assets\\images\\img01.png', 30);
 
 --
 -- Indexes for dumped tables
@@ -95,13 +95,13 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `contenido`
 --
 ALTER TABLE `contenido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

@@ -4,22 +4,21 @@ include( dirname(__DIR__,4) . "/classes/images.php");
 $contents = new Clases\Contents;
 $image = new Clases\Images;
 
-
-
 if(!empty($_POST))
 {
-    $contents->create($_POST);
-    
+    $contents->create($_POST);    
+
+
     $directorio = "assets/images/";
-    $archivo = $directorio . basename($_FILES["file"]["name"]);
+    $archivo = $directorio . basename($_FILES["url"]["name"]);
     $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
-    //valida que es img
-    $esImagen = getimagesize($_FILES["file"]["tmp_name"]);
+    // valida que es img
+    $esImagen = getimagesize($_FILES["url"]["tmp_name"]);
     
     if($esImagen != false){
-        if(move_uploaded_file($_FILES["file"]["tmp_name"], $archivo)){
-            $image->create($_POST);
-            echo "el archivo se subio correctamente";
+        if(move_uploaded_file($_FILES["url"]["tmp_name"], $archivo)){
+           $image->create($_POST);
+            //var_dump($_POST);
         }else{
             echo "hubo un error en la subida del archivo";
         }
@@ -44,7 +43,7 @@ if(!empty($_POST))
     <input placeholder="Palabras clave" type="text" name="keywords" id="keywords" required>
     <input placeholder="Descripción" type="text" name="description" id="description" required>
     <input placeholder="Categoría" type="text" name="category" id="category" required>
-    <input type="file" name="file" accept="image/*">
+    <input type="file" name="url" id="url" accept="image/*">
     <input type="submit" value="Enviar">
 </form>
 

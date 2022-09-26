@@ -1,7 +1,7 @@
 <?php
 namespace Clases;
 include_once 'database.php';
-include_once 'Contents.php';
+
 
 class Images extends Contents
 {
@@ -28,12 +28,11 @@ class Images extends Contents
          }
      }
 
-    public function create($item)
+    public function create($archivo)
     {
-
-        $query = $this->connect()->prepare("INSERT INTO images ( `url`) VALUES (:url)");
+        $query = $this->connect()->prepare("INSERT INTO images (`url`) VALUES (:url)");
         try {
-            $query->execute($item);
+            $query->execute($archivo);
             return true;
         } catch (\PDOException $e) {
             return false;
