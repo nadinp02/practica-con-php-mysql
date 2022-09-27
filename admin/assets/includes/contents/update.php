@@ -2,9 +2,9 @@
 include( dirname(__DIR__,4) . "/classes/contents.php");
 include( dirname(__DIR__,4) . "/classes/images.php");
 $contents = new Clases\Contents;
-$images = new Clases\Images;
 
 $id = $_GET["id"];
+
 
 // echo "<pre>";
 // var_dump($content);
@@ -13,7 +13,8 @@ $id = $_GET["id"];
 if(!empty($_POST)){
 
     $contents->update($_POST, $id);
-    header("Location:http://localhost/practica-con-php-mysql/admin/index.php");
+
+    header("Location:http://26.80.131.44/pil/nadin/admin/index.php");
 }
 $content = $contents->getById($id);
 
@@ -28,3 +29,6 @@ $content = $contents->getById($id);
     <input type="text" name="category" value = "<?= $content['category'] ?>">
     <input type="submit" value="Actualizar">
 </form>
+
+
+

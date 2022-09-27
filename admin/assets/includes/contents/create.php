@@ -6,8 +6,8 @@ $image = new Clases\Images;
 
 if(!empty($_POST))
 {
+    $codContenido = $_POST['cod'];
     $contents->create($_POST);    
-
 
     $directorio = "assets/images/";
     $archivo = $directorio . basename($_FILES["url"]["name"]);
@@ -17,7 +17,7 @@ if(!empty($_POST))
     
     if($esImagen != false){
         if(move_uploaded_file($_FILES["url"]["tmp_name"], $archivo)){
-           $image->create($_POST);
+           $image->create($archivo,$codContenido);
             //var_dump($_POST);
         }else{
             echo "hubo un error en la subida del archivo";
@@ -28,7 +28,7 @@ if(!empty($_POST))
     }
 
 
-    //header("Location:http://localhost/practica-con-php-mysql/admin/index.php");
+    header("Location:index.php");
 }
 
 
@@ -39,6 +39,7 @@ if(!empty($_POST))
 <form action ="index.php?opcion=contents&action=create" method="POST" enctype="multipart/form-data">
     <h2 class="mt-4 mb-3">Crear contenidos</h2>
     <input placeholder="Título" type="text" name="title" id="title" required>
+    <input type="hidden" name="cod" id="cod" value="<?=rand(10,9999)?>">
     <input placeholder="Contenido"  type="text" name="content" id="content" required>
     <input placeholder="Palabras clave" type="text" name="keywords" id="keywords" required>
     <input placeholder="Descripción" type="text" name="description" id="description" required>
@@ -46,5 +47,7 @@ if(!empty($_POST))
     <input type="file" name="url" id="url" accept="image/*">
     <input type="submit" value="Enviar">
 </form>
+
+
 
 <!-- nuevo form "el contenido de cargo correctamente" button "regresar" -->

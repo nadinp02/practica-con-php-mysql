@@ -1,38 +1,41 @@
 <?php
+
 namespace Clases;
+
 include_once 'database.php';
 
 
-class Images extends Contents
+
+class Images extends DB
 {
     function __construct()
     {
         $dbh = parent::__construct();
-       
     }
 
-     public function list()
-     {
-         $items = [];
-
-         try {
-             $query = $this->connect()->query("SELECT * FROM images");
-
-             while ($row = $query->fetch()) {
-                 array_push($items, $row);
-             }
-
-             return $items;
-        } catch (\PDOException $e) {
-             return [];
-         }
-     }
-
-    public function create($archivo)
+    public function list()
     {
-        $query = $this->connect()->prepare("INSERT INTO images (`url`) VALUES (:url)");
+        $items = [];
+
         try {
-            $query->execute($archivo);
+            $query = $this->connect()->query("SELECT * FROM images ");
+
+            while ($row = $query->fetch()) {
+                array_push($items, $row);
+            }
+
+            return $items;
+        } catch (\PDOException $e) {
+            return [];
+        }
+    }
+
+    public function create($archivo, $cod)
+    {
+        var_dump($archivo);
+        $query = $this->connect()->prepare("INSERT INTO images (`url`,`content`) VALUES (:url,:cod)");
+        try {
+            $query->execute(["url" => $archivo, 'cod' => $cod]);
             return true;
         } catch (\PDOException $e) {
             return false;
@@ -41,7 +44,7 @@ class Images extends Contents
 
     public function getById($id)
     {
-        $query = $this->connect()->prepare("SELECT * FROM images WHERE id = '". $id ."'");
+        $query = $this->connect()->prepare("SELECT * FROM images WHERE id = '" . $id . "'");
         try {
             $query->execute();
             $row = $query->fetch();
@@ -50,44 +53,53 @@ class Images extends Contents
             return null;
         }
     }
-    
-    public function update($id, $url){
-        $query = $this->connect()->prepare("UPDATE images SET url = :url WHERE id = '". $id ."'");
-        
-        try{
-            $query->execute();
 
-            return true;
-
-        } catch (\PDOException $e) {
-            return false;
-        }
-
-    }
-
-    
-     public function delete($id){
-     $query = $this->connect()->prepare("DELETE FROM images  WHERE id ='". $id ."'");
-        try{
-            $query->execute();
-            return true;
-    
-        } catch (\PDOException $e) {
-            return false;
-        }
-    }
-
-    function view($id)
+    public function getByCod($cod)
     {
-        $query = $this->connect()->prepare("SELECT * FROM contenido WHERE id ='". $id ."'");
+        $query = $this->connect()->prepare("SELECT * FROM images WHERE content = '" . $cod . "'");
         try {
             $query->execute();
-            return  $query->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+            $row = $query->fetch();
+            return $row;
+        } catch (\PDOException $e) {
+            return null;
+        }
+    }
+
+    public function update($id, $url)
+    {
+        $query = $this->connect()->prepare("UPDATE images SET url = :url WHERE id = '" . $id . "'");
+
+        try {
+            $query->execute();
+
+            return true;
+        } catch (\PDOException $e) {
             return false;
         }
     }
 
+
+    public function delete($id)
+    {
+        $query = $this->connect()->prepare("DELETE FROM images  WHERE id ='" . $id . "'");
+        try {
+            $query->execute();
+            return true;
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
+    // function view($id)
+    // {
+    //     $query = $this->connect()->prepare("SELECT * FROM contenido WHERE id ='". $id ."'");
+    //     try {
+    //         $query->execute();
+    //         return  $query->fetch(/PDO::FETCH_ASSOC);
+    //     } catch (PDOException $e) {
+    //         return false;
+    //     }
+    // }
+
 }
-
-

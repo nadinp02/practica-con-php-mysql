@@ -5,7 +5,7 @@
 <div>
     <ul class="nav justify-content-center" style="height: 45px">
     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost/practica-con-php-mysql/admin/index.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
