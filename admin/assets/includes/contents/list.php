@@ -2,10 +2,14 @@
 include(dirname(__DIR__, 4) . "/classes/contents.php");
 include(dirname(__DIR__, 4) . "/classes/images.php");
 $contents = new Clases\Contents;
+
 if (isset($_GET["delete"])) {
 
     $contents->delete($_GET["delete"]);
+
 }
+
+
 $contentsList = $contents->list();
 ?>
 
@@ -36,7 +40,7 @@ $contentsList = $contents->list();
                 <td> <?= $contenido['title'] ?></td>
                 <td> <?= $contenido['content'] ?></td>
                 <td> <img style="width:100px" src="<?= $contenido['imagenes']['url'] ?>" ?></td>
-
+                
                 <td>
                     <a href="index.php?opcion=contents&action=update&id=<?= $contenido['id'] ?>"><button type='button' class='btn btn-dark'>Actualizar</button></a>
                     <a href="index.php?opcion=contents&action=list&delete=<?= $contenido['id'] ?>"><button type='button' class='btn btn-danger' onclick="return ConfirmDelete()">Borrar</button></a>

@@ -68,10 +68,10 @@ class Images extends DB
 
     public function update($id, $url)
     {
-        $query = $this->connect()->prepare("UPDATE images SET url = :url WHERE id = '" . $id . "'");
+        $query = $this->connect()->prepare("UPDATE images SET url = :url WHERE id = :id");
 
         try {
-            $query->execute();
+            $query->execute(["url" => $url]);
 
             return true;
         } catch (\PDOException $e) {

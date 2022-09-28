@@ -57,7 +57,7 @@ class Contents extends DB
 
     
     public function update($item, $id){
-        $query = $this->connect()->prepare("UPDATE contenido SET title = :title, content = :content, keywords = :keywords, description = :description, category = :category, cod = :cod   WHERE id = '". $id ."'");
+        $query = $this->connect()->prepare("UPDATE contenido SET title = :title, content = :content, keywords = :keywords, description = :description, category = :category  WHERE id = '". $id ."'");
         
         try{
             $query->execute($item);
