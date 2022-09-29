@@ -11,6 +11,7 @@ class Images extends DB
     function __construct()
     {
         $dbh = parent::__construct();
+        
     }
 
     public function list()
@@ -82,6 +83,8 @@ class Images extends DB
 
     public function delete($id)
     {
+        $img = $this->getbyId($id);
+        unlink($img['url']);
         $query = $this->connect()->prepare("DELETE FROM images  WHERE id ='" . $id . "'");
         try {
             $query->execute();

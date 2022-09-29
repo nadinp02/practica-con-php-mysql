@@ -72,6 +72,9 @@ class Contents extends DB
 
     
      public function delete($id){
+        
+        //llamar a delete img 
+        
      $query = $this->connect()->prepare("DELETE FROM contenido  WHERE id ='". $id ."'");
         try{
             $query->execute();
