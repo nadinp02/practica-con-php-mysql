@@ -7,26 +7,26 @@ $image = new Clases\Images;
 if(!empty($_POST))
 {
     $codContenido = $_POST['cod'];
-    $contents->create($_POST);    
-
-    $directorio = "assets/images/";
-    $archivo = $directorio . basename($_FILES["url"]["name"]);
-    $tipoArchivo = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
-    // valida que es img
-    $esImagen = getimagesize($_FILES["url"]["tmp_name"]);
+    $contents->create($_POST);   
+ 
+    foreach($_FILES['url']['tmp_name'] as $key => $value){
+        $directorio = "assets/images/";
+        $archivo = $directorio . $codContenido. "-". $_FILES["url"]["name"][$key];
+      
+        // valida que es img
+        $esImagen = getimagesize($_FILES["url"]["tmp_name"][$key]);
+   
+        if($esImagen != false){
+            if(move_uploaded_file($_FILES["url"]["tmp_name"][$key], $archivo)){
+               $image->create($archivo,$codContenido);
+            }else{
+                echo "hubo un error en la subida del archivo";
+            }
     
-    if($esImagen != false){
-        if(move_uploaded_file($_FILES["url"]["tmp_name"], $archivo)){
-           $image->create($archivo,$codContenido);
-            //var_dump($_POST);
         }else{
-            echo "hubo un error en la subida del archivo";
+            echo "El documento no es una imagen";
         }
-
-    }else{
-        echo "El documento no es una imagen";
     }
-
 
     header("Location:index.php");
 }
@@ -44,7 +44,7 @@ if(!empty($_POST))
     <input placeholder="Palabras clave" type="text" name="keywords" id="keywords" required>
     <input placeholder="Descripción" type="text" name="description" id="description" required>
     <input placeholder="Categoría" type="text" name="category" id="category" required>
-    <input type="file" name="url" id="url" accept="image/*">
+    <input type="file" multiple name="url[]" id="url" accept="image/*">
     <input type="submit" value="Enviar">
 </form>
 

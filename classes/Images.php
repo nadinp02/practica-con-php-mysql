@@ -11,7 +11,6 @@ class Images extends DB
     function __construct()
     {
         $dbh = parent::__construct();
-        
     }
 
     public function list()
@@ -33,7 +32,6 @@ class Images extends DB
 
     public function create($archivo, $cod)
     {
-        var_dump($archivo);
         $query = $this->connect()->prepare("INSERT INTO images (`url`,`content`) VALUES (:url,:cod)");
         try {
             $query->execute(["url" => $archivo, 'cod' => $cod]);
@@ -59,9 +57,18 @@ class Images extends DB
     {
         $query = $this->connect()->prepare("SELECT * FROM images WHERE content = '" . $cod . "'");
         try {
+            $items = [];
             $query->execute();
-            $row = $query->fetch();
-            return $row;
+
+            // Asi se hacia
+            // $row = $query->fetchAll();
+
+            // Asi se hace ahora
+            while ($row = $query->fetch()) {
+                array_push($items, $row);
+            }
+
+            return $items;
         } catch (\PDOException $e) {
             return null;
         }

@@ -19,5 +19,9 @@
     <div class="container-fluid-navbar m-0">
 
         <div class="navbar align-items-center " style="height: 120px; ">
-            <img class="mx-auto d-block" src="admin/assets/images/img01.png" style="width: 230px">
+            <img class="mx-auto d-block" src="assets/images/img01.png" style="width: 230px">
         </div>
+        <?php
+        include(dirname(__DIR__, 2) . "/classes/contents.php");
+        include(dirname(__DIR__, 2) . "/classes/images.php");
+        ?>
