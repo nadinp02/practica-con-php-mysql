@@ -71,16 +71,10 @@ if (!empty($_POST)) {
     <?php foreach ($image as $img) {
     ?>
         <img style="width:100px" src="<?= $img['url'] ?>">
-        <a class='btn btn-dark' href="index.php?opcion=contents&action=update&id=<?= $content['id'] ?>&delete=<?= $img['id'] ?>">
-            <!-- <button type='button' class='btn btn-dark' onclick="return ConfirmDelete()">Eliminar imagen</button> -->
-            Eliminar imagen
+        <a href="index.php?opcion=contents&action=update&id=<?= $content['id'] ?>&delete=<?= $img['id'] ?>"><button type='button' class='btn btn-dark' onclick="return ConfirmDelete()">Eliminar imagen</button>    
         </a>
     <?php
     } ?>
-    <!-- <img style="width:100px" src="<?= $image[1]['url'] ?>" > -->
-    <!-- <a href="index.php?opcion=contents&action=update&id=<?= $content['id'] ?>&delete=<?= $image['id'] ?>"> -->
-    <!-- <button type='button' class='btn btn-dark' onclick="return ConfirmDelete()">Eliminar imagen</button> -->
-    <!-- </a> -->
     <br></br>
     <input multiple type="file" name="url[]" accept="image/*">
     <br></br>
