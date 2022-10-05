@@ -76,3 +76,17 @@
     height: 600px;
     object-fit: cover;
 }
+
+
+.img-carousel {
+    width: 100%;
+    height: auto;
+    margin:5px; 
+
+}
+.container-img-carousel{
+   width: 500px;
+}
+
+
+
