@@ -12,26 +12,25 @@ $image = $images->getByCod($content['cod']);
 
 ?>
 
-<div class="container container-img-carousel">
-    <div id="slider" class="carousel carousel-dark slide" data-bs-ride="carousel">
+<div class="container container-img-carousel mt-5">
+    <div id="slider" class="carousel slide " data-bs-ride="carousel">
 
         <div class="carousel-indicators pb-0">
             <?php foreach ($image as $key => $img) { ?>
                 <button data-bs-target="#slider" data-bs-slide-to="<?= $key ?>" class="<?= $key == 0 ? 'active' : '' ?>"></button>
             <?php } ?>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner carousel-box">
             <?php foreach ($image as $key => $img) { ?>
-                <div class="carousel-item <?= $key == 0 ? 'active' : '' ?>">
-                    <img class="img-carousel" src="<?= URL ?>admin/<?= $img['url'] ?>">
+                <div class="carousel-item  <?= $key == 0 ? 'active' : '' ?>">
+                    <img class="img-carousel"  src="<?= URL ?>admin/<?= $img['url'] ?>">
                 </div>
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption text-start d-none d-md-block">
                     <h5><?= $content['title'] ?></h5>
-                    <p><?= $content['content'] ?></p>
                 </div>
             <?php } ?>
         </div>
-        <button class="carousel-control-prev" data-bs-target="#slider" data-bs-slide="prev">
+        <button class="carousel-control-prev" styles=" border-radius: 30px;" data-bs-target="#slider" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
 
@@ -40,6 +39,10 @@ $image = $images->getByCod($content['cod']);
         </button>
     </div>
 </div>
+<div class = "contenido">
+<p><?= $content['content'] ?></p>
+</div>
+
 
 <?php
 include("assets/includes/footer.inc.php");

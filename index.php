@@ -2,6 +2,10 @@
 
 include("assets/includes/header.inc.php");
 include("assets/includes/nav.inc.php");
+
+$contents = new Clases\Contents;
+
+$contentsList = $contents->list();
 ?>
 
 <div id="intro" class="carousel slide pb-5" data-bs-ride="carousel">
@@ -39,61 +43,30 @@ include("assets/includes/nav.inc.php");
 
 
     <section>
-        <div class="card mx-auto mt-4 mb-5" style="max-width: 1150px;">
-            <div class="row g-0">
-                <div class="col">
-                    <img src="assets/images/img06.png"
-                         class="img-fluid rounded-start" style="width: 450px; height:300px">
-                </div>
-                <div class="col">
-                    <div class="card-body pt-5 ps-2 ">
-                        <h5 class="card-title">Servicio 1</h5>
-                        <p class="card-text pe-5">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                            has been the industry's standa….
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
         <article>
-            <div class="container pb-5 pt-4 pe-2 ps-0">
-
-                <div class="card-group">
-
-                    <div class="col ps-5">
-                        <div class="card mx-auto text-center" style="width: 300px; height: 370px">
-                            <img class="img-card-top"
-                                 src="assets/images/img06.png">
-                            <div class="card-body">
-                                <h2 class="card-title">Servicio 1</h2>
-                                <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col pe-5 ps-5">
-                        <div class="card mx-auto text-center " style="width:300px; height:370px">
-                            <img class="img-card-top" src="assets/images/img05.png">
-                            <div class="card-body">
-                                <h2 class="card-title">Servicio 2</h2>
-                                <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col pe-5">
-                        <div class="card mx-auto text-center" style="width: 300px; height:370px">
-                            <img class="img-card-top" src="assets/images/img04.png">
-                            <div class="card-body">
-                                <h2 class="card-title">Servicio 3</h2>
-                                <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
-                            </div>
+     <div class="container pb-5 pe-2 ps-0">
+        <div class="card-group ">
+            <?php
+            foreach ($contentsList as $contents) { ?>
+                <div class="col-4 ">
+                    <div class="card mx-auto text-center mt-4" style="width: 300px; height: 350px">
+                        <a href="<?= URL ?>/servicio.php?id=<?= $contents["id"] ?>">
+                            <img class="img-card-top" style="width:300px; height: 220px" src="<?= URL ?>admin/<?= $contents['imagenes'][0]['url'] ?>">
+                        </a>
+                        <div class="card-body">
+                            <h2 class="card-title"><?= $contents['title'] ?></h2>
+                            <p class="card-text"><?= $contents['description'] ?></p>
+                            <a href="<?= URL ?>/servicio.php?id=<?= $contents["id"] ?>"style = "color:white">
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </article>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+</article>
     </section>
 
 <?php
